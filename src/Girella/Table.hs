@@ -4,7 +4,7 @@ module Girella.Table
   ) where
 
 import Opaleye.Column (Column)
-import Opaleye.Internal.Table (TableProperties)
+import Opaleye.Internal.Table
 import Opaleye.Table hiding (optional)
 import qualified Opaleye.Table as T (optional)
 

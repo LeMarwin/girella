@@ -143,7 +143,7 @@ instance QueryRunnerColumnDefault StrictByteString StrictByteString where
 
 type instance PGRep Int = PGInt4
 instance PGNum Int where
-  pgFromInteger = safeCoerceFromRep . pgFromInteger
+  sqlFromInteger = safeCoerceFromRep . pgFromInteger
 instance ShowConstant Int where
   constant = safeCoerceFromRep . pgInt4
 instance QueryRunnerColumnDefault Int Int where
@@ -151,7 +151,7 @@ instance QueryRunnerColumnDefault Int Int where
 
 type instance PGRep Int64 = PGInt8
 instance PGNum Int64 where
-  pgFromInteger = safeCoerceFromRep . pgFromInteger
+  sqlFromInteger = safeCoerceFromRep . pgFromInteger
 instance ShowConstant Int64 where
   constant = safeCoerceFromRep . pgInt8
 instance QueryRunnerColumnDefault Int64 Int64 where
@@ -159,9 +159,9 @@ instance QueryRunnerColumnDefault Int64 Int64 where
 
 type instance PGRep Double = PGFloat8
 instance PGNum Double where
-  pgFromInteger = safeCoerceFromRep . pgFromInteger
+  sqlFromInteger = safeCoerceFromRep . pgFromInteger
 instance PGFractional Double where
-  sqlFromRational = safeCoerceFromRep . sqlFromRational
+  sqlFromRational = safeCoerceFromRep . pgFromRational
 instance ShowConstant Double where
   constant = safeCoerceFromRep . pgDouble
 instance QueryRunnerColumnDefault Double Double where
